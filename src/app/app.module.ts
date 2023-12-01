@@ -14,6 +14,11 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HomepageComponent } from './Customer-UI/homepage/homepage.component';
+import { NetworkComponent } from './Customer-UI/network/network.component';
+import { FriendsComponent } from './Customer-UI/friends/friends.component';
+import { SettingsComponent } from './Customer-UI/settings/settings.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 @NgModule({
@@ -22,7 +27,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     RegisterComponent,
     LoginComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    HomepageComponent,
+    NetworkComponent,
+    FriendsComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +42,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatButtonModule,
     MatInputModule,
     MatCardModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
