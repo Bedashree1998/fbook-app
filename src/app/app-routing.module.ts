@@ -8,6 +8,7 @@ import { HomepageComponent } from './Customer-UI/homepage/homepage.component';
 import { NetworkComponent } from './Customer-UI/network/network.component';
 import { FriendsComponent } from './Customer-UI/friends/friends.component';
 import { SettingsComponent } from './Customer-UI/settings/settings.component';
+import { UsersComponent } from './Customer-UI/users/users.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
 {path: 'network', component: NetworkComponent},
 {path: 'friends', component: FriendsComponent},
 {path: 'settings', component: SettingsComponent},
+{path: 'users', component: UsersComponent},
 ];
 
 @NgModule({

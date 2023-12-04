@@ -5,26 +5,34 @@
       </mat-card-header>
   
       <mat-card-content>
-        <form>
+        <form #myForm="ngForm" (ngSubmit)="onSubmit()">
           <mat-form-field class="full-width">
-            <input matInput placeholder="First Name" required>
+            <input matInput placeholder="First Name" type="text" id="firstName" name="firstName" [(ngModel)]="formData.firstName" required>
           </mat-form-field>
   
           <mat-form-field class="full-width">
-            <input matInput placeholder="Last Name" required>
+            <input matInput placeholder="Last Name" id="lastName" name="lastName" [(ngModel)]="formData.lastName" required>
           </mat-form-field>
   
           <mat-form-field class="full-width">
-            <input matInput type="email" placeholder="Email" required>
+            <input matInput type="email" placeholder="Email" id="email" name="email" [(ngModel)]="formData.email" required>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Date of Birth" id="dob" name="dob" [(ngModel)]="formData.dob" required>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Gender" id="gender" name="gender" [(ngModel)]="formData.gender" required>
           </mat-form-field>
   
           <mat-form-field class="full-width">
-            <input matInput type="password" placeholder="Password" required>
+            <input matInput type="password" placeholder="Password" id="password" name="firstName" [(ngModel)]="formData.password"required>
           </mat-form-field>
   
           <div fxLayout="row" fxLayoutAlign="space-between">
-            <button mat-raised-button color="primary" >Login</button>
-            <button mat-raised-button color="primary" [routerLink]="['/login']">Register</button>
+            <button  type="button" mat-raised-button color="primary" (click)="onLogin()" >Login</button>
+            <button type="submit" mat-raised-button color="primary">Register</button>
           </div>
         </form>
       </mat-card-content>

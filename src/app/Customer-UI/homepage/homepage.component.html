@@ -21,12 +21,13 @@
     
   </mat-card>
 </div>
+<form>
 <div class="container-post">
 <div class="conatiner-2">
     <mat-card class="custom-card">
         <div class="content">
           <h3>Write new post/upload pic</h3>
-          <button mat-raised-button color="primary">Post</button>
+          <button type="submit" mat-raised-button color="primary">Post</button>
         </div>
       </mat-card>
 </div>
@@ -38,20 +39,13 @@
     <mat-card-title>Bedashree Sahoo</mat-card-title>
     <mat-card-subtitle>Posted on January 1, 2023</mat-card-subtitle>
   </mat-card-header>
-  <img
-    mat-card-image
-    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    
-  />
-  <mat-card-content>
-    <h3>Existing post or pics</h3>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button>LIKE</button>
-    <button mat-raised-button>SHARE</button>
-  </mat-card-actions>
+  <mat-form-field>
+    <textarea matInput placeholder="Existing post or pics" ngModel></textarea>
+    </mat-form-field>
+  <p class="update-message">Updated 5 mins ago</p>
 </mat-card>
 </div>
 </div>
+</form>
 </div>
 

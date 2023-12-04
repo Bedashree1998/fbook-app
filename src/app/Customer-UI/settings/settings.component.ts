@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class SettingsComponent {
 
+
+  displayedColumns: string[] = ['name', 'age', 'city'];
+
+
 }

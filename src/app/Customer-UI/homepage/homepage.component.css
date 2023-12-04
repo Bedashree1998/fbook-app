@@ -6,7 +6,7 @@
 
 .post-card,
 .profile-card {
-  width: 300px;
+  width: 340px;
   margin-bottom: 20px;
 }
 
@@ -28,7 +28,7 @@
 .container-3{
     width: 300px;
   height: 200px;
-    padding: 60px;
+  margin-top: 60px;
 }
 
 .main-container{
@@ -40,7 +40,7 @@
 .container-post{
     display: flex;
     flex-direction: column;
-    margin-top: 100px;
+    margin-top: 147px;
 }
 .custom-card {
     display: flex;
@@ -60,4 +60,9 @@
   }
   mat-card-actions{
     gap: 20px;
+  }
+
+  .update-message{
+    display: flex;
+    flex-direction: row-reverse
   }

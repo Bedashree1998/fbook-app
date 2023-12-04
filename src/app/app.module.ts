@@ -18,7 +18,11 @@ import { HomepageComponent } from './Customer-UI/homepage/homepage.component';
 import { NetworkComponent } from './Customer-UI/network/network.component';
 import { FriendsComponent } from './Customer-UI/friends/friends.component';
 import { SettingsComponent } from './Customer-UI/settings/settings.component';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatTabsModule} from '@angular/material/tabs';
+import { UsersComponent } from './Customer-UI/users/users.component';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -31,7 +35,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     HomepageComponent,
     NetworkComponent,
     FriendsComponent,
-    SettingsComponent
+    SettingsComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +48,11 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatInputModule,
     MatCardModule,
     FlexLayoutModule,
-    MatButtonToggleModule
+    MatTabsModule,
+    FormsModule,
+    ReactiveFormsModule,
+HttpClientModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
