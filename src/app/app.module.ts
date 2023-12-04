@@ -14,7 +14,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { HomepageComponent } from './Customer-UI/homepage/homepage.component';
+import { HomePageComponent } from './Customer-UI/homepage/homepage.component';
 import { NetworkComponent } from './Customer-UI/network/network.component';
 import { FriendsComponent } from './Customer-UI/friends/friends.component';
 import { SettingsComponent } from './Customer-UI/settings/settings.component';
@@ -22,6 +22,10 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { UsersComponent } from './Customer-UI/users/users.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ProfileComponent } from './Customer-UI/profile/profile.component';
+import { FriendComponent } from './Customer-UI/friend/friend.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { HeaderComponent } from './Customer-UI/header/header.component';
 
 
 
@@ -32,11 +36,14 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     LoginComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
-    HomepageComponent,
+    HomePageComponent,
     NetworkComponent,
     FriendsComponent,
     SettingsComponent,
-    UsersComponent
+    UsersComponent,
+    ProfileComponent,
+    FriendComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +58,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     MatTabsModule,
     FormsModule,
     ReactiveFormsModule,
-HttpClientModule
+HttpClientModule,
+MatFormFieldModule
     
   ],
   providers: [],

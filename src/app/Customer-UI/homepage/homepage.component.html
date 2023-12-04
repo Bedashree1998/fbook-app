@@ -1,51 +1,22 @@
 
-<div class="main-container">
-<div class="container-1">
-<mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Bedashree Sahoo</mat-card-title>
-      <mat-card-subtitle>Web Developer</mat-card-subtitle>
-    </mat-card-header>
-    <img
-    mat-card-image
-    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    
-  />
-    <mat-card-content>
-      <p>
-        123 connections
-      </p>
-      <p>50 posts</p>
-    </mat-card-content>
-    
-  </mat-card>
-</div>
-<form>
-<div class="container-post">
-<div class="conatiner-2">
-    <mat-card class="custom-card">
-        <div class="content">
-          <h3>Write new post/upload pic</h3>
-          <button type="submit" mat-raised-button color="primary">Post</button>
+<div class="container">
+    <div class="col-one">
+       <app-profile></app-profile>
+    </div>
+    <div class="col-two">
+        <div class="row-one">
+            <textarea [(ngModel)]="postData" id="" cols="30" rows="10"></textarea>
+            <input type="file" name="" id="">
+            <button (click)="addPost();">Post</button>
         </div>
-      </mat-card>
-</div>
-
-<div class="container-3">
-<mat-card class="post-card">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Bedashree Sahoo</mat-card-title>
-    <mat-card-subtitle>Posted on January 1, 2023</mat-card-subtitle>
-  </mat-card-header>
-  <mat-form-field>
-    <textarea matInput placeholder="Existing post or pics" ngModel></textarea>
-    </mat-form-field>
-  <p class="update-message">Updated 5 mins ago</p>
-</mat-card>
-</div>
-</div>
-</form>
+        <div class="row-two">
+            <h3>Post</h3>
+            <div class="post" *ngFor="let post of posts">
+                <p>{{post?.post}}</p>
+                <p class="time">{{post?.userName}} | {{post?.createdDate | date}}</p>
+            </div>
+           
+        </div>
+    </div>
 </div>
 

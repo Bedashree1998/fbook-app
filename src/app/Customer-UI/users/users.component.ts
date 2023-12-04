@@ -1,34 +1,44 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-users',
+  selector: 'app-user',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
+export class UsersComponent {
+  constructor(private _userService:UserService,private _router:Router){}
 
+  users:any[]=[];
 
-export class UsersComponent implements OnInit {
-  constructor(private _http: HttpClient) {}
-  apiData: any[] = []; 
-  apiEndpoint = 'http://3.17.216.66:3000/users/';
-  ngOnInit(): void {
-    console.log('ngOnInit called!');
-    const token = sessionStorage.getItem('myKey');
+  action:boolean=false;
 
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    });
-
-    this._http.get(this.apiEndpoint, { headers }).subscribe(
-      (data: any) => {
-        console.log('API Response:', data);
-        this.apiData = data;
+ngOnInit(): void {
+  
+  let userID=localStorage.getItem("id");
+  if(userID)
+  {
+    this._userService.allUsers().subscribe(
+      (data:any[])=>
+      {
+          this.users=data;
       },
-      (error) => {
-        console.error('Error fetching data:', error);
+      (error)=>
+      {
+        alert("Unable to load users");
+        console.log(error);
       }
     );
-  }
+}
+else 
+{
+  this._router.navigateByUrl("/login");
+}
+ 
+ 
 
 }
+}
+
+

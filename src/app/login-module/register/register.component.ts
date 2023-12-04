@@ -1,5 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -7,48 +9,38 @@ import { Component } from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  formData = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    dob: '',
-    gender: '',
-    password: ''
-  };
 
+  constructor(private _fb:FormBuilder,private _authService:AuthService, private _router:Router){}
 
-  apiEndpoint = 'http://3.17.216.66:3000/users/register';
+  registerForm:FormGroup=this._fb.group({
+    'firstName':[null,Validators.required],
+    'lastName':[null,Validators.required],
+    'dob':[null,Validators.required],
+    'gender':[null,Validators.required],
+    'email':[null,Validators.required],
+    'password':[null,Validators.required]
+  })
 
-  constructor(private _http: HttpClient) {}
-
-  onSubmit() {
-    // Make a POST request to the API endpoint with the form data
-    this._http.post(this.apiEndpoint, this.formData).subscribe(
-      (response) => {
-        console.log('Data posted successfully:', response);
-        // Optionally, reset the form after successful submission
-        this.resetForm();
-      },
-      (error) => {
-        console.error('Error posting data:', error);
-      }
-    );
-  }
-
-  onLogin(){
-    console.log("Logged")
-  }
-
-  resetForm() {
-    // Reset the form data
-    this.formData = {
-      firstName: '',
-      lastName: '',
-      email: '',
-      dob: '',
-      gender: '',
-      password: ''
-    };
+  register() 
+  {
+    if(this.registerForm.valid)
+    {
+      this._authService.register(this.registerForm.value).subscribe(
+        (data)=>
+        {
+            this._router.navigateByUrl("/login");
+        },
+        (error)=>
+        {
+            alert("Something went wrong...");
+        }
+      );
+    }
+    else 
+    {
+      alert("Enter valid data");
+    }
+     
   }
 }
 

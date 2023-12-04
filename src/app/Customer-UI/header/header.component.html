@@ -1,0 +1,18 @@
+<header>
+    <mat-toolbar color="primary" class="mat-elevation-z6">
+    <h2>Friends Book App</h2>
+    <nav *ngIf="isAuthenticated">
+        <a mat-button [routerLink]="['/home']" routerLinkActive="active">Home</a>
+        <a mat-button *ngIf="isAdmin" routerLinkActive="active" [routerLink]="['/users']">Users</a>
+        <a mat-button [routerLink]="['/network']" routerLinkActive="active">Network</a>
+        <a mat-button [routerLink]="['/friends']" routerLinkActive="active">Friends</a>
+        <a mat-button [routerLink]="['/settings']" routerLinkActive="active">Settings</a>
+        <a mat-button href="" (click)="logout();" routerLinkActive="active">Logout</a>
+    </nav>
+    <nav *ngIf="!isAuthenticated">
+         <a mat-button  [routerLink]="['/register']" routerLinkActive="active">Register</a>
+        <a  mat-button [routerLink]="['/login']" routerLinkActive="active">Login</a>
+    </nav>
+    </mat-toolbar>
+</header> 
+
