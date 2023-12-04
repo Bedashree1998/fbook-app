@@ -23,7 +23,8 @@ ngOnInit(): void {
     this._userService.allFriends().subscribe(
       (data:any[])=>
       {
-          this.friends=data.filter(f=>f["userId"]!=userID);
+        data = data.slice(0, 10);
+        this.friends=data;
       },
       (error)=>
       {

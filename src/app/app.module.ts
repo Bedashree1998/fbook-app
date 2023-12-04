@@ -21,12 +21,12 @@ import { SettingsComponent } from './Customer-UI/settings/settings.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { UsersComponent } from './Customer-UI/users/users.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './Customer-UI/profile/profile.component';
 import { FriendComponent } from './Customer-UI/friend/friend.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { HeaderComponent } from './Customer-UI/header/header.component';
-
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
 
 
 @NgModule({
@@ -62,7 +62,7 @@ HttpClientModule,
 MatFormFieldModule
     
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

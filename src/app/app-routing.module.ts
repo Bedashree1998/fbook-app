@@ -9,17 +9,57 @@ import { NetworkComponent } from './Customer-UI/network/network.component';
 import { FriendsComponent } from './Customer-UI/friends/friends.component';
 import { SettingsComponent } from './Customer-UI/settings/settings.component';
 import { UsersComponent } from './Customer-UI/users/users.component';
+import { AuthGuard } from './helper/auth-guard.guard';
+import { AuthGuardAdmin } from './helper/auth-guard-admin.guard';
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent},
-{path: 'register', component: RegisterComponent},
-{path: 'forgot-password', component: ForgotPasswordComponent},
-{path: 'reset-password', component: ResetPasswordComponent},
-{path: 'homepage', component: HomePageComponent},
-{path: 'network', component: NetworkComponent},
-{path: 'friends', component: FriendsComponent},
-{path: 'settings', component: SettingsComponent},
-{path: 'users', component: UsersComponent},
+  {
+    path:'',
+    redirectTo:'home',
+    pathMatch:'full'
+  }
+  ,
+  {
+    path : 'forgot',
+    component:ForgotPasswordComponent
+  },
+  {
+    path : 'friends',
+    component:FriendsComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path : 'home',
+    component:HomePageComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path : 'login',
+    component:LoginComponent
+  },
+  {
+    path : 'register',
+    component:RegisterComponent
+  },
+  {
+    path : 'reset/:id',
+    component:ResetPasswordComponent
+  },
+  {
+    path : 'settings',
+    component:SettingsComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path : 'network',
+    component:NetworkComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path : 'users',
+    component:UsersComponent,
+    canActivate:[AuthGuardAdmin]
+  },
 ];
 
 @NgModule({

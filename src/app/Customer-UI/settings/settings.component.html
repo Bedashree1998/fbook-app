@@ -1,34 +1,34 @@
 <div class="container">
-    <div><h3>Profile Settings</h3></div>
-    <form [formGroup]="updateForm" (ngSubmit)="update();">
-        <div class="row-two">
-            <label>First name</label>
-            <input type="text" formControlName="firstName" >
+        <div><h3>Profile Settings</h3></div>
+        <form [formGroup]="updateForm" (ngSubmit)="update();">
+            <div class="row-two">
+                <label>First name</label>
+                <input type="text" formControlName="firstName" >
+            </div>
+            <div class="row-two">
+                <label>Last name</label>
+                <input type="text" formControlName="lastName" >
+            </div>
+            <div class="row-two">
+                <label>E-mail</label>
+                <input type="text" formControlName="email" >
+            </div>
+            <div class="row-two">
+                <label>Gender</label>
+                <input type="text" list="genderList" formControlName="gender" >
+                <datalist id="genderList">
+                    <option value="Male" >
+                    <option value="Female" ></option>
+                </datalist>
+            </div>
+            <div class="row-two">
+                <label>DOB</label>
+                <input type="date" formControlName="dob" >
+            </div>
+         
+        <div class="row-three">
+            <button>Save</button>
+            <a [routerLink]="['/forgot']">Change Password</a>
         </div>
-        <div class="row-two">
-            <label>Last name</label>
-            <input type="text" formControlName="lastName" >
-        </div>
-        <div class="row-two">
-            <label>E-mail</label>
-            <input type="text" formControlName="email" >
-        </div>
-        <div class="row-two">
-            <label>Gender</label>
-            <input type="text" list="genderList" formControlName="gender" >
-            <datalist id="genderList">
-                <option value="Male" >
-                <option value="Female" ></option>
-            </datalist>
-        </div>
-        <div class="row-two">
-            <label>DOB</label>
-            <input type="date" formControlName="dob" >
-        </div>
-     
-    <div class="row-three">
-        <button>Save</button>
-        <a [routerLink]="['/forgot']">Change Password</a>
+        </form>
     </div>
-    </form>
-</div>

@@ -22,6 +22,7 @@ ngOnInit(): void {
     this._userService.allUsers().subscribe(
       (data:any[])=>
       {
+          data = data.slice(0, 10);
           this.users=data;
       },
       (error)=>
